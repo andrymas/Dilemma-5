@@ -10,12 +10,12 @@ __pycache__/
 *.so
 
 # Modelli IA
-model/
 *.onnx
 *.model
 *.bin
 *.pt
 *.safetensors
+*.data
 
 # IDE e configurazioni locali
 .vscode/
