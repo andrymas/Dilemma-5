@@ -30,8 +30,8 @@ Qualsiasi marchio registrato o diritto d'autore citato (come "EMMA") appartiene 
 
 1. **Clona questa repository** (o scarica lo zip):
    ```bash
-   git clone https://github.com/andrymas/sovrano-digital.git
-   cd sovrano-digital
+   git clone https://github.com/andrymas/Dilemma-5.git
+   cd Dilemma-5
    ```
 
 2. **Scarica il modello:**
