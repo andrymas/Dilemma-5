@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilemma-5: SOVRANITÀ DIGITALE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="layout">
+        <header class="header">
+            <h1>Dilemma-5: Sovranità digitale</h1>
+            <span class="status" id="hw-status" style="display: none;"></span>
+        </header>
+
+        <main class="chat-box" id="chatBox">
+            <div class="message-wrapper bot-wrapper">
+                <div class="message bot-message">Come posso aiutarti?</div>
+            </div>
+        </main>
+
+        <div class="input-container">
+            <div class="input-box">
+                <input type="text" id="userInput" placeholder="Scrivi al Dilemma..." autocomplete="off">
+                <button id="sendBtn">Invia</button>
+            </div>
+            <div class="disclaimer">
+                Elabora i dati localmente. Sovranità digitale garantita.
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

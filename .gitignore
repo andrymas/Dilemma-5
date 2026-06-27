@@ -1,0 +1,27 @@
+# Ambienti virtuali
+venv/
+env/
+.env
+
+# Cache di Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Modelli IA
+model/
+*.onnx
+*.model
+*.bin
+*.pt
+*.safetensors
+
+# IDE e configurazioni locali
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Log
+*.log

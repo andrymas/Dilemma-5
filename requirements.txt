@@ -1,0 +1,13 @@
+Flask>=3.0.0
+Flask-Cors>=4.0.0
+numpy>=1.26.0
+onnxruntime-gpu==1.19.2
+sentencepiece>=0.2.0
+nvidia-cuda-runtime-cu12
+nvidia-cublas-cu12
+nvidia-cudnn-cu12
+nvidia-cufft-cu12
+nvidia-curand-cu12
+nvidia-cusolver-cu12
+nvidia-cusparse-cu12
+nvidia-nvtx-cu12
