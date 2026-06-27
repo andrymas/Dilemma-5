@@ -37,13 +37,17 @@ Qualsiasi marchio registrato o diritto d'autore citato (come "EMMA") appartiene 
 2. **Scarica il modello:**
    Scarica i file del modello dal repository Hugging Face: [eldavoo/emma-5](https://huggingface.co/eldavoo/emma-5).
    - Crea una cartella chiamata `model` nella root del progetto.
-   - Inserisci al suo interno il file ONNX (es. `emma5.onnx`) e il tokenizer (es. `bpe.model`).
+   - Inserisci al suo interno i file:
+     - `emma5.onnx`
+     - `emma5.onnx.data`
+     - `bpe.model`
    
    La struttura delle cartelle dovrà essere la seguente:
    ```text
-   emma-local-ui/
+   Dilemma-5/
    ├── model/
    │   ├── emma5.onnx
+   │   ├── emma5.onnx.data
    │   └── bpe.model
    ├── static/
    ├── templates/
