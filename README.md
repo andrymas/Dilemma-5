@@ -1,7 +1,7 @@
 # Dilemma-5 Local Web UI
 
-Una semplice, ma elegante interfaccia web per eseguire localmente il modello (da noi ribattezzato) **Dilemma-5** utilizzando **ONNX Runtime** con accelerazione **CUDA GPU** o **CPU**.
-L'obiettivo di questo progetto è garantire l'ormai celebre e tanto acclamata **"sovranità digitale"** (un ringraziamento speciale alle grandi dichiarazioni del CEO dell'azienda originaria). Ora puoi testare con mano i *fantastici* risultati del modello direttamente sul tuo PC, in totale privacy, e giudicare tu stesso.
+Una semplice, ma elegante interfaccia web per eseguire localmente il modello **tutto italiano** utilizzando **ONNX Runtime** con accelerazione **CUDA GPU** o **CPU**.
+L'obiettivo di questo progetto è garantire l'ormai celebre e tanto acclamata **"sovranità digitale"**. Ora puoi testare con mano i *fantastici* risultati del modello direttamente sul tuo PC, in totale privacy, e giudicare tu stesso.
 
 ---
 
@@ -16,12 +16,12 @@ Qualsiasi marchio registrato o diritto d'autore citato (come "EMMA") appartiene 
 
 ---
 
-## ✨ Caratteristiche
-- **Sovranità Digitale**: Nessuna API esterna, tutto gira in locale.
+## Caratteristiche
+- **Locale al 100%**: Nessuna API esterna, tutto gira in locale.
 - **Accelerazione Hardware**: Supporto nativo per **CUDA 12** per prestazioni ottimali su GPU NVIDIA. Ripiego automatico su CPU se la GPU non è disponibile.
 - **Facilità d'Uso**: Basta avviare lo script `start.bat` per installare automaticamente tutte le dipendenze e avviare il server Flask.
 
-## 🚀 Prerequisiti
+## Prerequisiti
 - **OS:** Windows (per lo script `start.bat`)
 - **Python:** 3.11 o superiore
 - **Hardware (Opzionale ma consigliato):** GPU NVIDIA compatibile con CUDA per l'accelerazione hardware (minimo 6-8GB VRAM consigliati).
@@ -36,7 +36,7 @@ Qualsiasi marchio registrato o diritto d'autore citato (come "EMMA") appartiene 
 
 2. **Scarica il modello:**
    Scarica i file del modello dal repository Hugging Face: [eldavoo/emma-5](https://huggingface.co/eldavoo/emma-5).
-   - Crea una cartella chiamata `model` nella root del progetto.
+   - Trova la cartella `model` nella root del progetto.
    - Inserisci al suo interno i file:
      - `emma5.onnx`
      - `emma5.onnx.data`
