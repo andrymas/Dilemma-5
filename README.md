@@ -1,3 +1,5 @@
+![alt text](https://github.com/andrymas/Dilemma-5/blob/main/foto_chat.png "Chat con il modello")
+
 # Dilemma-5 Local Web UI
 
 Una semplice, ma elegante interfaccia web per eseguire localmente il modello **tutto italiano** utilizzando **ONNX Runtime** con accelerazione **CUDA GPU** o **CPU**.
@@ -56,6 +58,8 @@ Qualsiasi marchio registrato o diritto d'autore citato (come "EMMA") appartiene 
    └── start.bat
    ```
 
+   Volendo si potrebbe anche scaricare il modello precedente [emma-4](https://huggingface.co/sasitsar/emma-4) (se proprio ci tieni) rinominando i file come quelli precedenti.
+
 3. **Avvia il server:**
    Fai doppio clic su `start.bat`. 
    Il file batch creerà automaticamente un ambiente virtuale isolato (`venv`), installerà le dipendenze dichiarate in `requirements.txt` (comprese le librerie CUDA 12 per ONNX) e avvierà il web server.
@@ -66,3 +70,5 @@ Qualsiasi marchio registrato o diritto d'autore citato (come "EMMA") appartiene 
 ## 📜 Licenza
 Questo progetto (l'interfaccia UI e gli script di avvio) è rilasciato sotto licenza MIT. 
 Tuttavia, **il modello EMMA-5 è soggetto alla propria licenza**. Assicurati di leggere e rispettare i termini d'uso indicati nella pagina del modello su Hugging Face prima di scaricarlo o utilizzarlo.
+
+Il mio sito web: [andrymasdev.it](https://andrymasdev.it)

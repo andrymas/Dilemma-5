@@ -11,7 +11,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	/* Font sans-serif moderno e pulito */
 	font-family: 'Inter', system-ui, sans-serif;
 	background: linear-gradient(135deg, #0f1014 0%, #1a1b26 100%);
 	color: var(--text-primary);
@@ -19,13 +18,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* Centra orizzontalmente la colonna principale */
 }
 
-/* * Struttura principale: abbandoniamo il box fluttuante.
- * Usiamo una colonna centrale che occupa il 100% dell'altezza, 
- * bloccata a una larghezza massima (800px) per una lettura ottimale.
- */
+/* Struttura principale del layout */
 .layout {
 	width: 100%;
 	max-width: 800px;
@@ -47,6 +42,32 @@ body {
 	font-size: 1.1rem;
 	font-weight: 500;
 	color: var(--text-primary);
+}
+
+/* Container per slider e badge */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Stili slider */
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+#tempLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+#tempSlider {
+    width: 150px;
+    cursor: pointer;
+    accent-color: var(--accent);
 }
 
 .status {
@@ -80,7 +101,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
-	/* Più spazio tra i messaggi rispetto al design precedente */
 	scroll-behavior: smooth;
 }
 
@@ -105,7 +125,7 @@ body {
 	white-space: pre-wrap;
 }
 
-/* Il messaggio utente mantiene la "bolla", ma più minimale */
+/* "bolla" messaggio utente */
 .user-message {
 	background-color: var(--bg-user);
 	padding: 14px 22px;
@@ -212,7 +232,7 @@ button:disabled {
 	background: var(--text-muted);
 }
 
-/* Animazione Typing più elegante e "soft" */
+/* Animazione Typing */
 .typing-indicator {
 	display: flex;
 	align-items: center;
@@ -247,5 +267,38 @@ button:disabled {
 	50% {
 		transform: scale(1.1);
 		opacity: 1;
+	}
+}
+
+/* --- RESPONSIVE DESIGN (Mobile) --- */
+@media (max-width: 600px) {
+	.header {
+		padding: 12px 16px;
+	}
+	.header h1 {
+		font-size: 1rem;
+	}
+	.header-controls {
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 8px;
+	}
+	.status {
+		font-size: 0.65rem;
+		padding: 4px 8px;
+	}
+	.chat-box {
+		padding: 16px 12px;
+		gap: 24px;
+	}
+	.user-message {
+		max-width: 85%;
+		padding: 12px 16px;
+	}
+	.input-container {
+		padding: 0 12px 16px 12px;
+	}
+	.input-box {
+		padding: 6px 6px 6px 16px;
 	}
 }

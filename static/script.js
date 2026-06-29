@@ -2,6 +2,20 @@ const chatBox = document.getElementById('chatBox');
 const userInput = document.getElementById('userInput');
 const sendBtn = document.getElementById('sendBtn');
 const hwStatusBadge = document.getElementById('hw-status');
+const tempSlider = document.getElementById('tempSlider');
+const tempLabel = document.getElementById('tempLabel');
+
+// Cambiare il label della temperatura dinamicamente
+tempSlider.addEventListener('input', () => {
+    const val = parseFloat(tempSlider.value);
+    let desc = "come dovrebbe essere (default)";
+    
+    if (val < 0.5) desc = "normale e scontata (fin troppo)";
+    else if (val >= 0.5 && val <= 0.8 && val !== 0.7) desc = "pazza";
+    else if (val > 0.8) desc = "bollita (massimo)";
+    
+    tempLabel.textContent = `Temperatura: ${val.toFixed(1)} - ${desc}`;
+});
 
 // 1. Funzione per verificare lo stato dell'hardware dal backend
 async function checkHardwareStatus() {
@@ -69,10 +83,12 @@ async function sendMessage() {
     scrollToBottom();
 
     try {
+        const temperature = parseFloat(tempSlider.value);
+        
         const response = await fetch('/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: text })
+            body: JSON.stringify({ message: text, temperature: temperature })
         });
 
         if (!response.ok) throw new Error('Network response was not ok');

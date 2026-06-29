@@ -16,7 +16,6 @@ logger = logging.getLogger(__name__)
 MODEL_ONNX_PATH = os.getenv("MODEL_ONNX_PATH", "./model/emma5.onnx")
 TOKENIZER_PATH = os.getenv("TOKENIZER_PATH", "./model/bpe.model")
 GPU_MEM_LIMIT = int(os.getenv("GPU_MEM_LIMIT", 6 * 1024 * 1024 * 1024))  # 6GB default
-MAX_CONTEXT_LENGTH = int(os.getenv("MAX_CONTEXT_LENGTH", 512))
 
 # Setup NVIDIA Paths
 venv_nvidia_path = os.path.join(os.path.dirname(__file__), "venv", "Lib", "site-packages", "nvidia")
@@ -69,18 +68,15 @@ class DilemmaModel:
             logger.error(f"Errore durante il caricamento del modello ONNX: {e}")
             raise
 
-    def generate_response(self, prompt: str, max_new_tokens: int = 150, temperature: float = 0.7, top_k: int = 40, repetition_penalty: float = 1.3):
+    def generate_response(self, prompt: str, temperature: float = 0.7, top_k: int = 40, repetition_penalty: float = 1.3):
         if not self.tokenizer or not self.session:
             raise RuntimeError("Il modello non è stato caricato.")
 
         input_ids = [self.tokenizer.bos_id()] + self.tokenizer.encode_as_ids(prompt)
         generated_text = ""
         
-        for _ in range(max_new_tokens):
-            if len(input_ids) >= MAX_CONTEXT_LENGTH:
-                logger.warning("Raggiunto il limite massimo di contesto.")
-                break
-                
+        # Loop infinito finché il modello non decide di terminare
+        while True:
             inputs = np.array([input_ids], dtype=np.int64)
             outputs = self.session.run(None, {"input_ids": inputs})
             logits = outputs[0][0, -1, :].copy()
@@ -147,14 +143,23 @@ def index():
 def chat():
     data = request.json
     if not data or not data.get("message"):
-        return {"error": "Messaggio mancante"}, 400
+        return {"error": "Message is required"}, 400
         
     user_input = data["message"].strip()
+    
+    # Extract the requested temperature from the JSON payload. 
+    # Default to 0.7 if not provided or if the conversion fails.
+    try:
+        req_temperature = float(data.get("temperature", 0.7))
+    except (ValueError, TypeError):
+        req_temperature = 0.7
+        
     prompt = f"### Istruzione:\n{user_input}\n\n### Risposta:\n"
     
     def stream():
         try:
-            for chunk in dilemma_model.generate_response(prompt):
+            # Generate the response using the specified temperature
+            for chunk in dilemma_model.generate_response(prompt, temperature=req_temperature):
                 yield f"data: {json.dumps({'chunk': chunk})}\n\n"
             yield "data: [DONE]\n\n"
         except Exception as e:
